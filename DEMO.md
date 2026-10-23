@@ -55,7 +55,7 @@ Copy an instruction from the Challenges page (each card has **Copy instruction**
 | 12 | Buy with approval | Expert | Order with Orbit Mini placed (Pulse X is cheaper but sold out); the agent asks before **Place order** | Approval before consequential actions |
 | 13 | Recover from a form error | Expert | Phone rejected as 5550107788, fixed to 555-010-7788, application submitted | Reading errors, retrying |
 
-**Real-model status:** every challenge is verified done by hand (`test:demo`), and the agent machinery is verified on the site with scripted decisions (`test:agent`). With the real Phi-3.5 Mini model, challenges 1 and 3 have passed the verifier and challenge 2 has failed; the others have not been run with a model yet. Treat them as stretch goals, not demo material.
+**Real-model status:** every challenge is verified done by hand (`test:demo`), and the agent machinery is verified on the site with scripted decisions (`test:agent`). With the real Phi-3.5 Mini model, challenges 1 and 3 have passed the verifier and challenge 2 has failed; the others have not been run with a model yet. On three read-only public-website tasks the model passed none, for the same reason: it reached the right page but did not stop and answer. Treat them as stretch goals, not demo material.
 
 Challenge 11 uses **Workflows** rather than the agent: record the classic form once, turn on **Simulate a redesigned button**, then run the workflow with new values. Replay notices that Continue became Next, avoids the new Cancel button, and asks you, the model, or a screenshot which control to use.
 

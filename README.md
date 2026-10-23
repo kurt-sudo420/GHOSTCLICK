@@ -227,7 +227,15 @@ The scripted runs prove the machinery, not the model's judgement.
 
 The other 10 challenges were not run with the real model before release. Earlier real-model runs, before the fixes below, failed every attempt; they exposed and led to fixing: replies that were not one valid action (now grammar-constrained JSON), relative URLs, relevance ranking that buried the target, ignoring search boxes, and a prompt budget that cut late-page controls such as **Next page**.
 
-**Public websites (real model, read-only):** a check on books.toscrape.com, quotes.toscrape.com, and Wikipedia (navigation, reading, and switching between two tabs) was still running at release time; results will be added here. The scripted end-to-end tests above cover tab discovery, switching, reading, and extraction on the local demo site.
+**Public websites (real model, read-only, 12-step limit, one run each): 0 / 3 passed.** The browser side worked every time; the model's decisions did not.
+
+| Task | What happened | Time |
+|------|---------------|------|
+| books.toscrape.com: open Mystery, give the first book and price | Opened the Mystery category and extracted all 20 books correctly, then kept clicking books and never answered | ~5 min |
+| quotes.toscrape.com: go to the next page, name the first author | Reached page 2 on its first action, then kept going to page 10 and never answered | 299 s |
+| Wikipedia: open Grace Hopper in a new tab, switch back to Alan Turing, give both birth years | Opened the new tab after several malformed tries, wandered to unrelated pages, never switched back or answered | 317 s |
+
+Across all real-model runs, the consistent weakness is the same: Phi-3.5 Mini reaches the right page or state but does not recognize that it is done, so it does not stop and answer.
 
 ## Limits
 
